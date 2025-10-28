@@ -1,0 +1,192 @@
+<div class="cookie-banner" data-cookie-banner hidden>
+  <div class="cookie-banner__inner">
+    <h2>Cookie-Einstellungen</h2>
+    <p>
+      Wir verwenden ausschließlich technisch notwendige Cookies sowie – nach Ihrer Einwilligung – optionale Dienste von Drittanbietern wie Google
+      Maps. Sie können Ihre Auswahl jederzeit anpassen.
+    </p>
+    <form data-cookie-form>
+      <fieldset class="cookie-options">
+        <legend>Cookie-Kategorien</legend>
+        <label class="cookie-option">
+          <input type="checkbox" checked disabled />
+          <span>
+            <strong>Essentiell</strong>
+            <small>Speichert Ihre Einwilligung und sichert den Betrieb der Website.</small>
+          </span>
+        </label>
+        <label class="cookie-option">
+          <input type="checkbox" name="external-media" />
+          <span>
+            <strong>Externe Medien (z.&nbsp;B. Google Maps)</strong>
+            <small>Erlaubt die Anzeige eingebetteter Inhalte von Google und anderen externen Anbietern.</small>
+          </span>
+        </label>
+      </fieldset>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn-secondary" data-cookie-decline>Nur essentielle Cookies</button>
+        <button type="button" class="btn btn-outline" data-cookie-save>Auswahl speichern</button>
+        <button type="button" class="btn btn-primary" data-cookie-accept-all>Alle akzeptieren</button>
+      </div>
+    </form>
+  </div>
+</div>
+<button type="button" class="cookie-reopen" data-cookie-open hidden>Cookie-Einstellungen</button>
+
+<script>
+  const initCookieConsent = () => {
+    if (window.__cookieConsentInitialized) return;
+
+    const STORAGE_KEY = 'cookieConsent.v1';
+    const defaultPrefs = {
+      essential: true,
+      externalMedia: false,
+      decided: false,
+      updatedAt: null,
+    };
+
+    let currentPrefs = { ...defaultPrefs };
+
+    const banner = document.querySelector('[data-cookie-banner]');
+    const openButton = document.querySelector('[data-cookie-open]');
+    const acceptAllButton = banner?.querySelector('[data-cookie-accept-all]');
+    const saveButton = banner?.querySelector('[data-cookie-save]');
+    const declineButton = banner?.querySelector('[data-cookie-decline]');
+    const externalCheckbox = banner?.querySelector('input[name="external-media"]');
+
+    if (!banner) {
+      console.warn('CookieConsent: Banner-Element nicht gefunden.');
+      return;
+    }
+
+    const showBanner = (reason = 'manual') => {
+      console.debug('[CookieConsent] showBanner', { reason });
+      banner.hidden = false;
+      banner.classList.remove('is-hidden');
+      if (openButton) {
+        openButton.hidden = true;
+        openButton.classList.add('is-hidden');
+      }
+    };
+
+    const hideBanner = (reason = 'manual') => {
+      console.debug('[CookieConsent] hideBanner', { reason });
+      banner.hidden = true;
+      banner.classList.add('is-hidden');
+      if (openButton) {
+        openButton.hidden = false;
+        openButton.classList.remove('is-hidden');
+      }
+    };
+
+    const readPrefs = () => {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return { ...defaultPrefs };
+        const parsed = JSON.parse(raw);
+        return { ...defaultPrefs, ...parsed };
+      } catch (error) {
+        console.warn('CookieConsent: Konnte gespeicherte Präferenzen nicht lesen.', error);
+        return { ...defaultPrefs };
+      }
+    };
+
+    const applyPrefs = (prefs) => {
+      currentPrefs = { ...defaultPrefs, ...prefs };
+      if (externalCheckbox) {
+        externalCheckbox.checked = !!currentPrefs.externalMedia;
+      }
+      window.cookieConsent = currentPrefs;
+      document.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: currentPrefs }));
+    };
+
+    const persistPrefs = (prefs, { markDecided = true } = {}) => {
+      const next = {
+        ...currentPrefs,
+        ...prefs,
+      };
+      if (markDecided) {
+        next.decided = true;
+        next.updatedAt = new Date().toISOString();
+      }
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      } catch (error) {
+        console.warn('CookieConsent: Konnte Präferenzen nicht speichern.', error);
+      }
+
+      applyPrefs(next);
+      return next;
+    };
+
+    const initialPrefs = readPrefs();
+    applyPrefs(initialPrefs);
+
+    if (initialPrefs.decided) {
+      hideBanner('initial:decided');
+    } else {
+      showBanner('initial:undecided');
+    }
+
+    if (openButton) {
+      openButton.hidden = !initialPrefs.decided;
+      openButton.addEventListener('click', () => {
+        showBanner();
+      });
+    }
+
+    if (acceptAllButton) {
+      acceptAllButton.addEventListener('click', () => {
+        persistPrefs({ externalMedia: true });
+        hideBanner('accept-all');
+      });
+    }
+
+    if (saveButton) {
+      saveButton.addEventListener('click', () => {
+        const externalMedia = !!externalCheckbox?.checked;
+        persistPrefs({ externalMedia });
+        hideBanner('save');
+      });
+    }
+
+    if (declineButton) {
+      declineButton.addEventListener('click', () => {
+        if (externalCheckbox) {
+          externalCheckbox.checked = false;
+        }
+        persistPrefs({ externalMedia: false });
+        hideBanner('decline');
+      });
+    }
+
+    window.__cookieConsentInitialized = true;
+
+    window.cookieConsentManager = {
+      get: () => ({ ...currentPrefs }),
+      update: (partialPrefs = {}, options = {}) => {
+        const next = persistPrefs(partialPrefs, { markDecided: options.markDecided !== false });
+        if (options.openAfter) {
+          showBanner('update:openAfter');
+        } else if (options.closeBanner !== false) {
+          hideBanner('update:close');
+        }
+        return next;
+      },
+      open: () => showBanner(),
+    };
+
+    document.dispatchEvent(
+      new CustomEvent('cookie-consent-manager-ready', { detail: window.cookieConsentManager })
+    );
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieConsent, { once: true });
+  } else {
+    initCookieConsent();
+  }
+
+  document.addEventListener('astro:load', initCookieConsent, { once: true });
+</script>

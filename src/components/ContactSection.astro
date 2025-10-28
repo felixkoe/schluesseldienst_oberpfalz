@@ -1,0 +1,168 @@
+<section id="kontakt" class="section section--light">
+  <div class="container contact-grid">
+    <div class="contact-card">
+      <h2>Kontakt &amp; Erreichbarkeit</h2>
+      <p>Sie erreichen uns jederzeit telefonisch oder per WhatsApp. Gerne vereinbaren wir auch Beratungstermine vor Ort.</p>
+      <ul>
+        <li>
+          <span>24h Hotline:</span>
+          <a href="tel:+4917699044112">+49 176 990 44112</a>
+        </li>
+        <li>
+          <span>WhatsApp:</span>
+          <a href="https://wa.me/4917699044112">Nachricht senden</a>
+        </li>
+        <li>
+          <span>E-Mail:</span>
+          <a href="mailto:kontakt@schluesseldienst-oberpfalz.de">kontakt@schluesseldienst-oberpfalz.de</a>
+        </li>
+      </ul>
+    </div>
+    <div class="map-embed" data-map-container>
+      <div class="map-placeholder" data-map-placeholder>
+        <h3>Google Maps anzeigen</h3>
+        <p>
+          Zur Darstellung der Karte greifen wir auf Dienste von Google zu. Dabei können personenbezogene Daten (z.&nbsp;B. Ihre IP-Adresse) an
+          Google übertragen werden. Erst nach Ihrer ausdrücklichen Einwilligung laden wir die Karte.
+        </p>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" data-map-accept>Google Maps laden</button>
+          <button type="button" class="btn btn-outline" data-map-settings>Cookie-Einstellungen</button>
+        </div>
+        <p class="map-hint">Sie können Ihre Auswahl jederzeit über die Cookie-Einstellungen widerrufen.</p>
+      </div>
+      <iframe
+        title="Einsatzgebiet Schlüsseldienst Oberpfalz"
+        data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2685.658618807352!2d12.091418!3d49.015152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477519254d79f77d%3A0xf0fb1923112e7853!2sRegensburg!5e0!3m2!1sde!2sde!4v1713379200000"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        hidden
+        data-map-frame
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+  const initMapConsent = () => {
+    if (window.__mapConsentInitialized) return;
+
+    const container = document.querySelector('[data-map-container]');
+    if (!container) return;
+
+    window.__mapConsentInitialized = true;
+
+    const placeholder = container.querySelector('[data-map-placeholder]');
+    const iframe = container.querySelector('iframe[data-map-frame]');
+    const acceptButton = container.querySelector('[data-map-accept]');
+    const settingsButton = container.querySelector('[data-map-settings]');
+
+    const setFrameSrc = () => {
+      if (!iframe) return;
+      if (!iframe.src) {
+        const source = iframe.dataset.src;
+        if (source) {
+          iframe.src = source;
+        }
+      }
+    };
+
+    const clearFrameSrc = () => {
+      if (!iframe) return;
+      if (iframe.src) {
+        iframe.removeAttribute('src');
+      }
+    };
+
+    const showMap = () => {
+      if (placeholder) {
+        placeholder.hidden = true;
+      }
+      if (iframe) {
+        setFrameSrc();
+        iframe.hidden = false;
+      }
+      container.classList.add('map-embed--active');
+    };
+
+    const showPlaceholder = () => {
+      if (placeholder) {
+        placeholder.hidden = false;
+      }
+      if (iframe) {
+        iframe.hidden = true;
+        clearFrameSrc();
+      }
+      container.classList.remove('map-embed--active');
+    };
+
+    const applyConsent = (prefs = {}) => {
+      if (prefs.externalMedia) {
+        showMap();
+      } else {
+        showPlaceholder();
+      }
+    };
+
+    const handleConsentUpdate = (event) => {
+      applyConsent(event.detail || {});
+    };
+
+    document.addEventListener('cookie-consent-updated', handleConsentUpdate);
+
+    const initializeWithCurrentConsent = () => {
+      if (window.cookieConsent) {
+        applyConsent(window.cookieConsent);
+      } else {
+        showPlaceholder();
+      }
+    };
+
+    initializeWithCurrentConsent();
+
+    const requestExternalMedia = () => {
+      if (window.cookieConsentManager?.update) {
+        window.cookieConsentManager.update({ externalMedia: true });
+      } else {
+        const waitForManager = (evt) => {
+          evt.detail.update({ externalMedia: true });
+          document.removeEventListener('cookie-consent-manager-ready', waitForManager);
+        };
+        document.addEventListener('cookie-consent-manager-ready', waitForManager);
+      }
+    };
+
+    if (acceptButton) {
+      acceptButton.addEventListener('click', () => {
+        requestExternalMedia();
+      });
+    }
+
+    if (settingsButton) {
+      settingsButton.addEventListener('click', () => {
+        if (window.cookieConsentManager?.open) {
+          window.cookieConsentManager.open();
+        } else {
+          const openWhenReady = (evt) => {
+            evt.detail.open();
+            document.removeEventListener('cookie-consent-manager-ready', openWhenReady);
+          };
+          document.addEventListener('cookie-consent-manager-ready', openWhenReady);
+        }
+      });
+    }
+
+    document.addEventListener('cookie-consent-manager-ready', () => {
+      initializeWithCurrentConsent();
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMapConsent, { once: true });
+  } else {
+    initMapConsent();
+  }
+
+  document.addEventListener('astro:load', initMapConsent, { once: true });
+</script>

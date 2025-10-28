@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const meta = {
+  title: "Impressum – Schlüsseldienst Oberpfalz",
+  description:
+    "Pflichtangaben gemäß § 5 TMG und Informationen zur Anbieterkennzeichnung für den Schlüsseldienst Oberpfalz.",
+  canonical: "https://xn--schlsseldienst-oberpfalz-ysc.de/impressum",
+};
+
+const company = {
+  name: "Schlüsseldienst Oberpfalz",
+  legalRepresentative: "Bitte Ansprechpartner ergänzen",
+  street: "Bitte Straße und Hausnummer ergänzen",
+  postalCode: "Bitte Postleitzahl und Ort ergänzen",
+  phone: "+49 176 990 44112",
+  email: "kontakt@schluesseldienst-oberpfalz.de",
+  whatsapp: "https://wa.me/4917699044112",
+  vatId: "Wird nachgereicht",
+};
+---
+
+<BaseLayout {...meta}>
+  <Header />
+  <main class="legal-page">
+    <section class="section section--light">
+      <div class="container legal-content">
+        <h1>Impressum</h1>
+
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p>
+          {company.name}
+          <br />
+          {company.legalRepresentative}
+          <br />
+          {company.street}
+          <br />
+          {company.postalCode}
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          Telefon: <a href={`tel:${company.phone.replace(/\s+/g, "")}`}>{company.phone}</a>
+          <br />
+          E-Mail: <a href={`mailto:${company.email}`}>{company.email}</a>
+          <br />
+          WhatsApp: <a href={company.whatsapp}>Chat starten</a>
+        </p>
+
+        <h2>Umsatzsteuer-ID</h2>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: {company.vatId}</p>
+
+        <h2>Berufsbezeichnung</h2>
+        <p>Schlüsseldienst / Sicherheitsdienstleistungen. Zuständig ist die Handwerkskammer der Oberpfalz (bitte bei Bedarf präzisieren).</p>
+
+        <h2>EU-Streitschlichtung</h2>
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:&nbsp;
+          <a href="https://ec.europa.eu/odr" rel="noopener noreferrer" target="_blank">https://ec.europa.eu/odr</a>. Unsere E-Mail-Adresse finden Sie
+          oben im Impressum.
+        </p>
+
+        <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Bei
+          auftretenden Konflikten bemühen wir uns um eine einvernehmliche Lösung mit unseren Kundinnen und Kunden.
+        </p>
+
+        <h2>Haftung für Inhalte</h2>
+        <p>
+          Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach
+          §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
+          oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung
+          von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
+          Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte
+          umgehend entfernen.
+        </p>
+
+        <h2>Haftung für Links</h2>
+        <p>
+          Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden
+          Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten
+          verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren
+          zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
+          Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+        </p>
+
+        <h2>Urheberrecht</h2>
+        <p>
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
+          Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des
+          jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+          Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet und entsprechende Inhalte
+          gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei
+          Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+        </p>
+
+        <h2>Bildnachweise</h2>
+        <p>
+          Hero- und Hintergrundbilder: Unsplash –&nbsp;
+          <a href="https://unsplash.com/photos/1K9T5YiZ2WU" rel="noopener noreferrer" target="_blank">Photo by Jared Muller</a>
+          &nbsp;(abgerufen am 15.04.2024) sowie weitere Bilder aus der Unsplash-Library.
+        </p>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

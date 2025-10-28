@@ -1,0 +1,61 @@
+<header class="site-header" id="top">
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <span>24h Schlüsselnotdienst Oberpfalz • Sofort zur Stelle</span>
+      <div class="top-bar__links">
+        <a href="tel:+4917699044112">+49 176 990 44112</a>
+        <a href="https://wa.me/4917699044112">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="container main-header">
+    <a href="/" class="logo">
+      <span>Schlüsseldienst</span>
+      <strong>Oberpfalz</strong>
+    </a>
+    <nav class="primary-nav" aria-label="Hauptnavigation">
+      <input type="checkbox" id="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle" aria-label="Navigation umschalten" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="/#hero">Start</a></li>
+        <li><a href="/#leistungen">Leistungen</a></li>
+        <li><a href="/#servicegebiete">Servicegebiete</a></li>
+        <li><a href="/#notfall">Notfallhilfe</a></li>
+        <li><a href="/#bewertungen">Bewertungen</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+        <li><a href="/#region">Unsere Region</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+4917699044112" class="header-call">Jetzt anrufen</a>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('astro:load', () => {
+    const navToggle = document.getElementById('nav-toggle');
+    const navLabel = document.querySelector('label[for="nav-toggle"]');
+    const navLinks = document.getElementById('primary-navigation');
+
+    const syncNavState = () => {
+      if (navToggle && navLabel) {
+        navLabel.setAttribute('aria-expanded', navToggle.checked ? 'true' : 'false');
+      }
+    };
+
+    if (navToggle && navLabel && navLinks) {
+      syncNavState();
+      navToggle.addEventListener('change', syncNavState);
+      navLinks.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLAnchorElement && window.innerWidth <= 860) {
+          navToggle.checked = false;
+          syncNavState();
+        }
+      });
+    }
+  });
+</script>
