@@ -1,37 +1,37 @@
-<div class="cookie-banner" data-cookie-banner hidden>
+﻿<div class="cookie-banner" data-cookie-banner hidden>
   <div class="cookie-banner__inner">
-    <h2>Cookie-Einstellungen</h2>
-    <p>
+    <h2 data-i18n="cookie.h2">Cookie-Einstellungen</h2>
+    <p data-i18n="cookie.p">
       Wir verwenden ausschließlich technisch notwendige Cookies sowie – nach Ihrer Einwilligung – optionale Dienste von Drittanbietern wie Google
       Maps. Sie können Ihre Auswahl jederzeit anpassen.
     </p>
     <form data-cookie-form>
       <fieldset class="cookie-options">
-        <legend>Cookie-Kategorien</legend>
+        <legend data-i18n="cookie.legend">Cookie-Kategorien</legend>
         <label class="cookie-option">
           <input type="checkbox" checked disabled />
           <span>
-            <strong>Essentiell</strong>
-            <small>Speichert Ihre Einwilligung und sichert den Betrieb der Website.</small>
+            <strong data-i18n="cookie.essential.title">Essentiell</strong>
+            <small data-i18n="cookie.essential.desc">Speichert Ihre Einwilligung und sichert den Betrieb der Website.</small>
           </span>
         </label>
         <label class="cookie-option">
           <input type="checkbox" name="external-media" />
           <span>
-            <strong>Externe Medien (z.&nbsp;B. Google Maps)</strong>
-            <small>Erlaubt die Anzeige eingebetteter Inhalte von Google und anderen externen Anbietern.</small>
+            <strong data-i18n="cookie.external.title">Externe Medien (z.&nbsp;B. Google Maps)</strong>
+            <small data-i18n="cookie.external.desc">Erlaubt die Anzeige eingebetteter Inhalte von Google und anderen externen Anbietern.</small>
           </span>
         </label>
       </fieldset>
       <div class="cookie-banner__actions">
-        <button type="button" class="btn btn-secondary" data-cookie-decline>Nur essentielle Cookies</button>
-        <button type="button" class="btn btn-outline" data-cookie-save>Auswahl speichern</button>
-        <button type="button" class="btn btn-primary" data-cookie-accept-all>Alle akzeptieren</button>
+        <button type="button" class="btn btn-secondary" data-cookie-decline data-i18n="cookie.decline">Nur essentielle Cookies</button>
+        <button type="button" class="btn btn-outline" data-cookie-save data-i18n="cookie.save">Auswahl speichern</button>
+        <button type="button" class="btn btn-primary" data-cookie-accept-all data-i18n="cookie.acceptAll">Alle akzeptieren</button>
       </div>
     </form>
   </div>
 </div>
-<button type="button" class="cookie-reopen" data-cookie-open hidden>Cookie-Einstellungen</button>
+<button type="button" class="cookie-reopen" data-cookie-open hidden data-i18n="cookie.reopen">Cookie-Einstellungen</button>
 
 <script>
   const initCookieConsent = () => {

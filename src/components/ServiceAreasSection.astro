@@ -1,8 +1,17 @@
+﻿---
+import {
+  serviceAreaImageFour,
+  serviceAreaImageOne,
+  serviceAreaImageThree,
+  serviceAreaImageTwo,
+} from "../assets/siteImages";
+---
+
 <section id="servicegebiete" class="section section--light">
   <div class="container split-grid">
     <div>
-      <h2>Unterwegs in der gesamten Oberpfalz</h2>
-      <p>
+      <h2 data-i18n="areas.h2">Unterwegs in der gesamten Oberpfalz</h2>
+      <p data-i18n="areas.p">
         Unsere Einsatzzentrale in Regensburg koordiniert Monteure in allen Landkreisen der Oberpfalz. So sind wir schnell bei Ihnen – egal ob in
         der Stadt oder auf dem Land. Nachfolgend finden Sie eine Auswahl unserer häufigsten Einsatzorte.
       </p>
@@ -21,22 +30,26 @@
     </div>
     <div class="service-areas__gallery">
       <img
-        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=720&q=80"
-        alt="Historische Altstadt in der Oberpfalz"
+        class="service-areas__image service-areas__image--neunkirchen"
+        src={serviceAreaImageOne.src}
+        alt="Schluesseldienst in Neunkirchen bei Weiden"
         loading="lazy"
       />
       <img
-        src="https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=720&q=80"
+        class="service-areas__image service-areas__image--neustadt"
+        src={serviceAreaImageTwo.src}
         alt="Handwerker beim Arbeiten an einer Tür"
         loading="lazy"
       />
       <img
-        src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=720&q=80"
-        alt="Wohngebiet in Regensburg"
+        class="service-areas__image service-areas__image--weiden"
+        src={serviceAreaImageThree.src}
+        alt="Schluesseldienst in Weiden i.d.OPf."
         loading="lazy"
       />
       <img
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=720&q=80"
+        class="service-areas__image service-areas__image--altenstadt"
+        src={serviceAreaImageFour.src}
         alt="Schlüssel und Schloss auf einem Holztisch"
         loading="lazy"
       />

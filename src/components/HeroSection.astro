@@ -1,42 +1,65 @@
-<section id="hero" class="section hero">
+---
+import { heroImage } from "../assets/siteImages";
+---
+
+<section id="hero" class="section hero relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/80 to-transparent"></div>
+  <div class="pointer-events-none absolute -left-24 top-28 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl motion-safe:animate-float"></div>
+  <div class="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-emerald-300/20 blur-3xl motion-safe:animate-float"></div>
   <div class="container hero__layout">
-    <div>
-      <span class="badge">Rund um die Uhr erreichbar</span>
-      <h1>
-        Schlüsseldienst Oberpfalz
-        <br />
-        Türöffnung &amp; Sicherheit aus einer Hand
-      </h1>
-      <p>
+    <div class="relative z-10">
+      <span class="badge shadow-[0_16px_32px_-24px_rgba(4,159,130,0.65)] backdrop-blur-sm" data-i18n="hero.badge">Rund um die Uhr erreichbar</span>
+      <h1 data-i18n="hero.h1">Schlüsseldienst Oberpfalz<br />Türöffnung &amp; Sicherheit aus einer Hand</h1>
+      <p class="max-w-2xl text-lg text-stone-700" data-i18n="hero.p1">
         Wenn die Tür ins Schloss fällt oder der Schlüssel abbricht, zählt jede Minute. Unser regionales Einsatzteam ist in der gesamten Oberpfalz
         unterwegs und hilft schnell, zuverlässig und sauber – egal ob Wohnung, Haus oder Gewerbeobjekt.
       </p>
-      <p>
+      <p data-i18n="hero.p2">
         Wir arbeiten mit modernen Öffnungstechniken, um Beschädigungen zu vermeiden. Vor Beginn nennen wir Ihnen transparent den Preis und halten
         uns daran. Versteckte Kosten oder nachträgliche Zuschläge gibt es bei uns nicht.
       </p>
-      <p>
+      <p data-i18n="hero.p3">
         Ob mitten in der Nacht, am Wochenende oder an Feiertagen – Sie erreichen uns jederzeit. Unsere Monteure starten von mehreren Standorten,
         dadurch verkürzen wir die Anfahrtszeit und sind meist in 20 bis 40 Minuten vor Ort.
       </p>
-      <p>
+      <p data-i18n="hero.p4">
         Auf Wunsch beraten wir Sie im Anschluss zu besseren Sicherheitslösungen, tauschen Zylinder oder rüsten Zusatzschlösser nach. So bleibt Ihr
         Zuhause auch langfristig geschützt.
       </p>
       <div class="cta-buttons">
-        <a class="btn btn-primary" href="tel:+4917699044112">24h Notruf 0176 990 44112</a>
-        <a class="btn btn-secondary" href="https://wa.me/4917699044112">WhatsApp schreiben</a>
+        <a
+          class="btn btn-primary shadow-[0_24px_55px_-28px_rgba(120,53,15,0.9)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_65px_-28px_rgba(120,53,15,0.95)]"
+          href="tel:+4917699044112"
+          data-i18n="hero.cta1"
+        >
+          24h Notruf 0176 990 44112
+        </a>
+        <a
+          class="btn btn-secondary shadow-[0_24px_55px_-28px_rgba(22,163,74,0.9)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_65px_-28px_rgba(22,163,74,0.95)]"
+          href="https://wa.me/4917699044112"
+          data-i18n="hero.cta2"
+        >
+          WhatsApp schreiben
+        </a>
       </div>
       <ul class="hero__highlights">
-        <li class="hero__highlight">Transparente Festpreise inklusive Anfahrt</li>
-        <li class="hero__highlight">Beschädigungsfreie Türöffnung in über 90&nbsp;% der Einsätze</li>
-        <li class="hero__highlight">Regionale Fachkräfte aus der Oberpfalz</li>
+        <li class="hero__highlight transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_-30px_rgba(0,0,0,0.45)]" data-i18n="hero.highlight1">
+          Transparente Festpreise inklusive Anfahrt
+        </li>
+        <li class="hero__highlight transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_-30px_rgba(0,0,0,0.45)]" data-i18n="hero.highlight2">
+          Beschädigungsfreie Türöffnung in über 90&nbsp;% der Einsätze
+        </li>
+        <li class="hero__highlight transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_-30px_rgba(0,0,0,0.45)]" data-i18n="hero.highlight3">
+          Regionale Fachkräfte aus der Oberpfalz
+        </li>
       </ul>
     </div>
-    <div class="hero__media">
-      <figure>
+    <div class="hero__media relative z-10">
+      <figure class="group">
+        <div class="pointer-events-none absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-amber-400/20 via-transparent to-emerald-300/20 opacity-80 blur-2xl transition duration-500 group-hover:scale-105"></div>
         <img
-          src="https://images.unsplash.com/photo-1523419409543-0c1df022bdd6?auto=format&fit=crop&w=1000&q=80"
+          class="relative transition duration-700 ease-out group-hover:scale-[1.03] group-hover:-rotate-1 motion-safe:animate-float"
+          src={heroImage.src}
           alt="Schlüsseldienst-Techniker öffnet eine Haustür"
           loading="lazy"
         />

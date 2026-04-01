@@ -1,5 +1,6 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { aboutImage } from "../assets/siteImages";
 import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
 import ServiceAreasSection from "../components/ServiceAreasSection.astro";
@@ -17,13 +18,13 @@ const meta = {
   description:
     "Schnelle Türöffnung, transparente Preise und regionale Monteure für die gesamte Oberpfalz. Wir sind Tag und Nacht für Sie erreichbar.",
   canonical: "https://xn--schlsseldienst-oberpfalz-ysc.de/",
-  ogImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+  ogImage: aboutImage.src,
 };
 ---
 
 <BaseLayout {...meta}>
   <Header />
-  <main>
+  <main class="overflow-x-clip">
     <HeroSection />
     <ServiceAreasSection />
     <AboutSection />
