@@ -18,12 +18,6 @@ const { title = "Schlüsseldienst Oberpfalz", description, canonical, ogImage } 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;600&family=Open+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
     <slot name="head" />
   </head>
   <body class="bg-[radial-gradient(circle_at_top,_rgba(180,83,9,0.12),_transparent_36%),linear-gradient(180deg,_#fffaf3_0%,_#f7f7f7_28%,_#f5f8f7_100%)] text-stone-800 antialiased selection:bg-amber-700 selection:text-white">
@@ -50,7 +44,7 @@ const { title = "Schlüsseldienst Oberpfalz", description, canonical, ogImage } 
       'hero.p2': 'Wir arbeiten mit modernen Öffnungstechniken, um Beschädigungen zu vermeiden. Vor Beginn nennen wir Ihnen transparent den Preis und halten uns daran. Versteckte Kosten oder nachträgliche Zuschläge gibt es bei uns nicht.',
       'hero.p3': 'Ob mitten in der Nacht, am Wochenende oder an Feiertagen – Sie erreichen uns jederzeit. Unsere Monteure starten von mehreren Standorten, dadurch verkürzen wir die Anfahrtszeit und sind meist in 20 bis 40 Minuten vor Ort.',
       'hero.p4': 'Auf Wunsch beraten wir Sie im Anschluss zu besseren Sicherheitslösungen, tauschen Zylinder oder rüsten Zusatzschlösser nach. So bleibt Ihr Zuhause auch langfristig geschützt.',
-      'hero.cta1': '24h Notruf 0176 990 44112',
+      'hero.cta1': '24h Notruf 0151 536 39881',
       'hero.cta2': 'WhatsApp schreiben',
       'hero.highlight1': 'Transparente Festpreise inklusive Anfahrt',
       'hero.highlight2': 'Beschädigungsfreie Türöffnung in über 90&nbsp;% der Einsätze',
@@ -77,7 +71,7 @@ const { title = "Schlüsseldienst Oberpfalz", description, canonical, ogImage } 
       'emergency.p': 'Bleiben Sie ruhig – schon ein kurzer Anruf genügt, und wir machen uns auf den Weg. Damit wir Ihnen möglichst effizient helfen können, empfehlen wir folgende Schritte:',
       'emergency.li1': '<strong>1. Zugang prüfen:</strong> Werfen Sie einen Blick auf Balkon- oder Terrassentüren. Vielleicht ist ein anderer Weg ins Haus möglich, ohne uns zu rufen.',
       'emergency.li2': '<strong>2. Keine Gewalt anwenden:</strong> Versuche mit Draht, Karte oder Schraubendreher verursachen schnell teure Schäden. Warten Sie lieber auf unser Spezialwerkzeug.',
-      'emergency.li3': '<strong>3. Notruf wählen:</strong> Rufen Sie uns unter <a href="tel:+4917699044112">0176 990 44112</a> an und beschreiben Sie kurz die Situation. Wir bestätigen Ihnen sofort den Festpreis.',
+      'emergency.li3': '<strong>3. Notruf wählen:</strong> Rufen Sie uns unter <a href="tel:+4915153639881">0151 536 39881</a> an und beschreiben Sie kurz die Situation. Wir bestätigen Ihnen sofort den Festpreis.',
       'emergency.li4': '<strong>4. Ausweisen:</strong> Halten Sie nach Möglichkeit einen Identitätsnachweis bereit. Für Ihre Sicherheit öffnen wir Türen nur Berechtigten.',
       'emergency.highlight.h3.1': 'Transparente Preise &amp; kurze Reaktionszeiten',
       'emergency.highlight.p1': 'Tagsüber, nachts oder am Wochenende – wir arbeiten mit klaren Festpreisen. Zuschläge kommunizieren wir offen, bevor Kosten entstehen. Anfahrt, Arbeitszeit und Material sind nachvollziehbar aufgeschlüsselt.',
@@ -121,11 +115,14 @@ const { title = "Schlüsseldienst Oberpfalz", description, canonical, ogImage } 
       'relatedlinks.link7': 'Direkt zum 24h Notruf',
       'relatedlinks.link8': 'Impressum &amp; Pflichtangaben',
       'footer.h2': 'Schlüsseldienst Oberpfalz – Ihr Partner für Tür und Schloss',
-      'footer.link.emergency': 'Notruf: 0176 990 44112',
+      'footer.link.emergency': 'Notruf: 0151 536 39881',
       'footer.link.services': 'Leistungen',
       'footer.link.contact': 'Kontakt',
+      'footer.link.instagram': 'Instagram',
       'footer.link.imprint': 'Impressum',
-      'footer.note': '© {year} Schlüsseldienst Oberpfalz. Regional, transparent, jederzeit erreichbar.',
+      'footer.link.privacy': 'Datenschutz',
+      'footer.link.agb': 'AGB',
+      'footer.note': '© {year} Schlüsseldienst Kölling. Regional, transparent, jederzeit erreichbar.',
       'cookie.h2': 'Cookie-Einstellungen',
       'cookie.p': 'Wir verwenden ausschließlich technisch notwendige Cookies sowie – nach Ihrer Einwilligung – optionale Dienste von Drittanbietern wie Google Maps. Sie können Ihre Auswahl jederzeit anpassen.',
       'cookie.legend': 'Cookie-Kategorien',
@@ -155,7 +152,7 @@ const { title = "Schlüsseldienst Oberpfalz", description, canonical, ogImage } 
       'hero.p2': 'We use modern opening techniques to avoid damage. Before starting, we transparently quote you the price and stick to it. No hidden costs or subsequent surcharges.',
       'hero.p3': 'Whether in the middle of the night, on weekends or public holidays – you can reach us at any time. Our technicians depart from multiple locations, reducing travel time so we are usually on site within 20 to 40 minutes.',
       'hero.p4': 'On request, we advise you on better security solutions, replace cylinders or install additional locks. This keeps your home protected long-term.',
-      'hero.cta1': '24h Emergency 0176 990 44112',
+      'hero.cta1': '24h Emergency 0151 536 39881',
       'hero.cta2': 'Write on WhatsApp',
       'hero.highlight1': 'Transparent fixed prices including travel',
       'hero.highlight2': 'Damage-free door opening in over 90&nbsp;% of cases',
@@ -182,7 +179,7 @@ const { title = "Schlüsseldienst Oberpfalz", description, canonical, ogImage } 
       'emergency.p': 'Stay calm – a brief phone call is all it takes and we will be on our way. To help you as efficiently as possible, we recommend the following steps:',
       'emergency.li1': '<strong>1. Check access:</strong> Take a look at balcony or patio doors. Perhaps there is another way into the house without calling us.',
       'emergency.li2': '<strong>2. Do not use force:</strong> Attempts with wire, cards or screwdrivers quickly cause expensive damage. Better to wait for our specialist tools.',
-      'emergency.li3': '<strong>3. Call emergency number:</strong> Call us on <a href="tel:+4917699044112">0176 990 44112</a> and briefly describe the situation. We will immediately confirm the fixed price.',
+      'emergency.li3': '<strong>3. Call emergency number:</strong> Call us on <a href="tel:+4915153639881">0151 536 39881</a> and briefly describe the situation. We will immediately confirm the fixed price.',
       'emergency.li4': '<strong>4. Provide identification:</strong> Please have ID ready if possible. For your safety, we only open doors for authorised persons.',
       'emergency.highlight.h3.1': 'Transparent Prices &amp; Short Response Times',
       'emergency.highlight.p1': 'Day, night or weekend – we work with clear fixed prices. We communicate surcharges openly before costs arise. Travel, labour and materials are clearly itemised.',
@@ -226,11 +223,14 @@ const { title = "Schlüsseldienst Oberpfalz", description, canonical, ogImage } 
       'relatedlinks.link7': 'Directly to 24h Emergency',
       'relatedlinks.link8': 'Imprint &amp; Legal Notice',
       'footer.h2': 'Locksmith Oberpfalz – Your Partner for Door and Lock',
-      'footer.link.emergency': 'Emergency: 0176 990 44112',
+      'footer.link.emergency': 'Emergency: 0151 536 39881',
       'footer.link.services': 'Services',
       'footer.link.contact': 'Contact',
+      'footer.link.instagram': 'Instagram',
       'footer.link.imprint': 'Imprint',
-      'footer.note': '© {year} Locksmith Oberpfalz. Regional, transparent, available at any time.',
+      'footer.link.privacy': 'Privacy Policy',
+      'footer.link.agb': 'Terms & Conditions',
+      'footer.note': '© {year} Schlüsseldienst Kölling. Regional, transparent, available at any time.',
       'cookie.h2': 'Cookie Settings',
       'cookie.p': 'We use only technically necessary cookies and – after your consent – optional third-party services such as Google Maps. You can adjust your selection at any time.',
       'cookie.legend': 'Cookie Categories',

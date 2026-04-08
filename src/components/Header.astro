@@ -1,5 +1,7 @@
 ---
-import logo from '../assets/logo.png';
+import logo from '../assets/images/logo.png';
+import flagDe from '../assets/flags/german.svg';
+import flagGb from '../assets/flags/gb.svg';
 ---
 <header class="site-header supports-[backdrop-filter]:bg-white/80 supports-[backdrop-filter]:backdrop-blur-xl" id="top">
   <div class="top-bar relative overflow-hidden">
@@ -7,11 +9,16 @@ import logo from '../assets/logo.png';
     <div class="container top-bar__inner">
       <span data-i18n="header.topbar">24h Schlüsselnotdienst Oberpfalz • Sofort zur Stelle</span>
       <div class="top-bar__links">
-        <a href="tel:+4917699044112">+49 176 990 44112</a>
-        <a href="https://wa.me/4917699044112">WhatsApp</a>
+        <a href="tel:+4915153639881">+49 176 990 44112</a>
+        <a href="https://wa.me/4915153639881">WhatsApp</a>
+        <a href="https://www.instagram.com/schluesseldienst_oberpfalz/" rel="noopener noreferrer" target="_blank">Instagram</a>
         <div class="lang-switcher">
-          <button type="button" class="lang-btn" data-lang="de" title="Deutsch" aria-label="Deutsch">🇩🇪</button>
-          <button type="button" class="lang-btn" data-lang="en" title="English" aria-label="English">🇬🇧</button>
+          <button type="button" class="lang-btn" data-lang="de" title="Deutsch" aria-label="Deutsch">
+            <img src={flagDe.src} alt="Deutsch" />
+          </button>
+          <button type="button" class="lang-btn" data-lang="en" title="English" aria-label="English">
+            <img src={flagGb.src} alt="English" />
+          </button>
         </div>
       </div>
     </div>
@@ -40,7 +47,7 @@ import logo from '../assets/logo.png';
       </ul>
     </nav>
     <a
-      href="tel:+4917699044112"
+      href="tel:+4915153639881"
       class="header-call"
       data-i18n="header.call"
     >
@@ -64,12 +71,19 @@ import logo from '../assets/logo.png';
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
     padding: 2px 3px;
     border-radius: 4px;
     opacity: 0.45;
     transition: opacity 0.2s;
     line-height: 1;
+    display: inline-flex;
+    align-items: center;
+  }
+  .lang-btn img {
+    width: 22px;
+    height: auto;
+    display: block;
+    border-radius: 2px;
   }
   .lang-btn--active { opacity: 1; }
   .lang-btn:hover { opacity: 0.8; }

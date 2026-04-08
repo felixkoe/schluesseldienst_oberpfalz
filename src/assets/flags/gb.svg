@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="60" height="40" role="img" aria-label="United Kingdom Flag">
+  <!-- Blue background -->
+  <rect width="60" height="40" fill="#012169"/>
+
+  <!-- White diagonals (St. Andrew's Cross base) -->
+  <line x1="0" y1="0" x2="60" y2="40" stroke="#FFFFFF" stroke-width="8"/>
+  <line x1="60" y1="0" x2="0" y2="40" stroke="#FFFFFF" stroke-width="8"/>
+
+  <!-- Red diagonals (St. Patrick's Cross) - offset top-left to bottom-right -->
+  <!-- Top-left quadrant -->
+  <polygon points="0,0 0,5 30,20 26.67,20" fill="#C8102E"/>
+  <!-- Bottom-right quadrant -->
+  <polygon points="60,40 60,35 30,20 33.33,20" fill="#C8102E"/>
+  <!-- Top-right quadrant -->
+  <polygon points="60,0 55,0 30,20 30,16.67" fill="#C8102E"/>
+  <!-- Bottom-left quadrant -->
+  <polygon points="0,40 5,40 30,20 30,23.33" fill="#C8102E"/>
+
+  <!-- White cross (St. George's Cross) -->
+  <rect x="0" y="15" width="60" height="10" fill="#FFFFFF"/>
+  <rect x="25" y="0" width="10" height="40" fill="#FFFFFF"/>
+
+  <!-- Red cross (St. George's Cross) -->
+  <rect x="0" y="17" width="60" height="6" fill="#C8102E"/>
+  <rect x="27" y="0" width="6" height="40" fill="#C8102E"/>
+</svg>

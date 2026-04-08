@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep:*)",
+      "Bash(xargs ls:*)",
+      "Bash(mkdir -p \"c:/Users/felix/Documents/Code/Website_Flo/schluesseldienst_oberpfalz/public/fonts\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://fonts.googleapis.com/css2?family=Cabin:wght@500;600&family=Open+Sans:wght@400;600;700&display=swap\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://fonts.googleapis.com/css2?family=Cabin:wght@500;600&family=Open+Sans:wght@400;600;700&display=swap\")",
+      "Bash(curl -s -o \"cabin-latin.woff2\" \"https://fonts.gstatic.com/s/cabin/v35/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvqdns.woff2\")",
+      "Bash(curl -s -o \"cabin-latin-ext.woff2\" \"https://fonts.gstatic.com/s/cabin/v35/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvp9nsBXw.woff2\")",
+      "Bash(curl -s -o \"opensans-latin.woff2\" \"https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2\")",
+      "Bash(curl -s -o \"opensans-latin-ext.woff2\" \"https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu1aB.woff2\")"
+    ]
+  }
+}

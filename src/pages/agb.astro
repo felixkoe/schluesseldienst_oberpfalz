@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const meta = {
+  title: "AGB – Schlüsseldienst Kölling",
+  description:
+    "Allgemeine Geschäftsbedingungen des Schlüsseldienst Kölling, Inhaber Florian Kölling.",
+  canonical: "https://xn--schlsseldienst-oberpfalz-ysc.de/agb",
+};
+---
+
+<BaseLayout {...meta}>
+  <Header />
+  <main class="legal-page">
+    <section class="section section--light">
+      <div class="container legal-content">
+        <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+
+        <h2>1. Geltungsbereich</h2>
+        <p>
+          Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Dienstleistungen, die durch den
+          Schlüsseldienst Kölling, Inhaber Florian Kölling, erbracht werden.
+        </p>
+
+        <h2>2. Auftragserteilung und Ablauf</h2>
+        <p>
+          Ein Auftrag kommt telefonisch zustande. Der Kunde verpflichtet sich, zum vereinbarten Zeitpunkt am
+          Einsatzort anwesend zu sein. Die Leistung erfolgt vor Ort. Die Bezahlung erfolgt in bar unmittelbar nach
+          Erbringung der Leistung.
+        </p>
+
+        <h2>3. Preise und Zuschläge</h2>
+        <p>
+          Die Preise richten sich nach dem jeweiligen Arbeitsaufwand und werden im Rahmen eines Preisrahmens vorab
+          telefonisch mitgeteilt. Es können Zuschläge anfallen, insbesondere bei Einsätzen nachts, an Wochenenden
+          oder an Feiertagen. Diese werden dem Kunden ebenfalls vor Auftragserteilung transparent mitgeteilt.
+        </p>
+
+        <h2>4. Stornierung</h2>
+        <p>
+          Wird ein Auftrag nach telefonischer Beauftragung storniert, bevor die Anfahrt begonnen wurde, entstehen
+          keine Kosten. Bei Stornierungen nach Anfahrtsbeginn werden die Anfahrtskosten pauschal berechnet.
+        </p>
+
+        <h2>5. Haftung</h2>
+        <p>
+          Der Schlüsseldienst Kölling haftet nur für Schäden, die durch grobe Fahrlässigkeit oder Vorsatz
+          verursacht wurden. Keine Haftung wird übernommen für Schäden, die durch bereits bestehende Mängel an
+          Türen, Schlössern oder Rahmen entstehen. Der Kunde trägt das Risiko bei Öffnungen unter erschwerten
+          Bedingungen.
+        </p>
+
+        <h2>6. Gerichtsstand</h2>
+        <p>Gerichtsstand ist, soweit gesetzlich zulässig, Weiden in der Oberpfalz.</p>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
