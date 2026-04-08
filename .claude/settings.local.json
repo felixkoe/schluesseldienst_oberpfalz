@@ -9,7 +9,8 @@
       "Bash(curl -s -o \"cabin-latin.woff2\" \"https://fonts.gstatic.com/s/cabin/v35/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvqdns.woff2\")",
       "Bash(curl -s -o \"cabin-latin-ext.woff2\" \"https://fonts.gstatic.com/s/cabin/v35/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvp9nsBXw.woff2\")",
       "Bash(curl -s -o \"opensans-latin.woff2\" \"https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2\")",
-      "Bash(curl -s -o \"opensans-latin-ext.woff2\" \"https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu1aB.woff2\")"
+      "Bash(curl -s -o \"opensans-latin-ext.woff2\" \"https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu1aB.woff2\")",
+      "Bash(npm run:*)"
     ]
   }
 }

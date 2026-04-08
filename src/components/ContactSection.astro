@@ -45,6 +45,27 @@
 </section>
 
 <script>
+  interface CookiePrefs {
+    externalMedia?: boolean;
+  }
+  interface CookieConsentManager {
+    update: (prefs: CookiePrefs) => void;
+    open: () => void;
+  }
+  interface CookieConsentManagerReadyEvent extends CustomEvent {
+    detail: CookieConsentManager;
+  }
+  interface CookieConsentUpdatedEvent extends CustomEvent {
+    detail: CookiePrefs;
+  }
+  declare global {
+    interface Window {
+      __mapConsentInitialized?: boolean;
+      cookieConsent?: CookiePrefs;
+      cookieConsentManager?: CookieConsentManager;
+    }
+  }
+
   const initMapConsent = () => {
     if (window.__mapConsentInitialized) return;
 
@@ -53,8 +74,8 @@
 
     window.__mapConsentInitialized = true;
 
-    const placeholder = container.querySelector('[data-map-placeholder]');
-    const iframe = container.querySelector('iframe[data-map-frame]');
+    const placeholder = container.querySelector<HTMLElement>('[data-map-placeholder]');
+    const iframe = container.querySelector<HTMLIFrameElement>('iframe[data-map-frame]');
     const acceptButton = container.querySelector('[data-map-accept]');
     const settingsButton = container.querySelector('[data-map-settings]');
 
@@ -97,7 +118,7 @@
       container.classList.remove('map-embed--active');
     };
 
-    const applyConsent = (prefs = {}) => {
+    const applyConsent = (prefs: CookiePrefs = {}) => {
       if (prefs.externalMedia) {
         showMap();
       } else {
@@ -105,8 +126,8 @@
       }
     };
 
-    const handleConsentUpdate = (event) => {
-      applyConsent(event.detail || {});
+    const handleConsentUpdate = (event: Event) => {
+      applyConsent((event as CookieConsentUpdatedEvent).detail || {});
     };
 
     document.addEventListener('cookie-consent-updated', handleConsentUpdate);
@@ -125,8 +146,8 @@
       if (window.cookieConsentManager?.update) {
         window.cookieConsentManager.update({ externalMedia: true });
       } else {
-        const waitForManager = (evt) => {
-          evt.detail.update({ externalMedia: true });
+        const waitForManager = (evt: Event) => {
+          (evt as CookieConsentManagerReadyEvent).detail.update({ externalMedia: true });
           document.removeEventListener('cookie-consent-manager-ready', waitForManager);
         };
         document.addEventListener('cookie-consent-manager-ready', waitForManager);
@@ -144,8 +165,8 @@
         if (window.cookieConsentManager?.open) {
           window.cookieConsentManager.open();
         } else {
-          const openWhenReady = (evt) => {
-            evt.detail.open();
+          const openWhenReady = (evt: Event) => {
+            (evt as CookieConsentManagerReadyEvent).detail.open();
             document.removeEventListener('cookie-consent-manager-ready', openWhenReady);
           };
           document.addEventListener('cookie-consent-manager-ready', openWhenReady);
